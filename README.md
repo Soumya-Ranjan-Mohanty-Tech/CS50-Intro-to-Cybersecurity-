@@ -61,3 +61,34 @@ Well, you should minimally be looking at the URL bar and making sure that it is 
 **Machine in the middle attack**: if you're on the internet, there are, suffice it to say, many other machines on the internet very often between you and whatever website or app you are visiting. Often those machines might be things like routers, uh, servers that internet service providers, companies, universities, maybe even your own home owns and controls, but all of your data is passing through those machines in the middle, so to speak. If any of them are malicious and are maybe storing your data, looking at your data, it's possible that you might not be having secure communications with the other end unless you are using certain defenses.
 **Well, a solution to someof these problems might be this single sign on or SSO**
 **single sign on or SSO**:  So, single sign on refers to an ability to sign up for to log into one website using an account that you already have on another website. And very often the account that you use is one of the big ones, one of the popular websites or applications out there.
+
+**Password Managers**
+Apple - iCloud Keychain
+Google - Password Manager
+Microsoft - Credential Manager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
