@@ -152,10 +152,78 @@ Some of the algorithms now currently used for encryption are:
 AES
 Triple DES
 These AES and Triple DES popular algorithms that have been vetted by the world and are very commonly used as secret keyencryption ciphers or symmetric key encryption ciphers, which to be clear require that both the sender and the receiver know and use the exact same key.
+**Public Key Cryptography/Asymetric key encryption**
+Diffie Helman,
+MQV,
+RSA
+Two keys are used one public and a private key. They have a mathematical relationship. It is generated for you. Public key is not secret it is public. But the private is supposed to be kept seceret. If i share the public key in public then some one that has the public key can use the public key to encrypt a message and send it to me. And i, who is having the private key is the onl one in the worls who can decrypt the message.
+**RSA**
+n = p*q
+Our devices(phone/laptop) chooses two big prime numbers and multiply them to give n. Then it uses the resulting n in the following matheamtical calculation.
 
+c = m^e mod n
+m = c^d mod n
+If i have a message **m** that i wanna send it to some person and with our public key **e**. That someone can take their message and raise it to the power of **e**, the exponent of e, and the divide it by n, and figure out the remainder when didviding it by n. 
 
+**RSA Public Key Generation (Simplified)**
+Step 1: Choose Two Prime Numbers
+Pick two large prime numbers:
+p=61,q=53
 
+Step 2: Multiply Them
+n=p×q
+n=61×53=3233
+This value becomes part of both keys.
 
+Step 3: Compute Euler’s Totient
+ϕ(n)=(p−1)(q−1)
+ϕ(n)=60×52=3120
+
+Step 4: Choose Public Exponent e
+Choose a number:
+1<e<ϕ(n)
+coprime with ϕ(n)
+
+Common choice:
+e=65537
+For this small example:
+e=17
+
+Step 5: Form the Public Key
+The public key is:
+(n,e)
+So: (3233,17), This is the public key.
+
+Step 6: Generate the Private Key
+Find d such that:
+d×e≡1(modϕ(n))
+For this example: d=2753
+**Private key:** (3233,2753)
+
+**Private Key**
+You already know:
+p=61
+q=53
+ϕ(n)=3120
+e=17
+Now we must find the private key: d such that:
+d×e≡1(mod3120)
+
+Since e=17:
+d×17≡1(mod3120)
+What Does This Actually Mean?
+It means:
+Find a number d so that when multiplied by 17 and divided by 3120, the remainder is 1.
+
+Another Way to Write It
+We want:
+17d=3120k+1
+for some integer k.
+ 
+What Is d Actually? d is called the: Modular Multiplicative Inverse of e modulo ϕ(n).
+Meaning:
+e^−1 modϕ(n)
+So: d=17^−1 mod3120
 
 
 
