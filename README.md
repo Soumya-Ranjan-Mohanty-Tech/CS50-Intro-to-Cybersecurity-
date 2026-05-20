@@ -112,16 +112,46 @@ The salt is actually stored in the hash value itself according to this algorithm
 verifiers shall store memorized secrets in the form that is resistant to offline attacks. Memorized secrets shall be salted and hashed using a suitable one-way key derivation function. Their purpose is to make each password guessing uh trial by an attacker who has obtained a password hash file expensive and therefore the cost of guessing attack of a guessing attack high or prohibitive.
 
 **One way hash function**
-Arbitary lenghth - fixed length
-These are mathematical functions, or in the context of programmin these are function written in code languages like python or otherwise that take as input string of arbitrary length that is a password.
+**Arbitary lenghth - fixed length**
+These are mathematical functions, or in the context of programmin these are function written in code languages like python or otherwise that take as input string of arbitrary length that is a password. And what's key to this crptographic functions are these outputs of has values of fixed lengths.
+cryptographic these one-way hash functions are one way in the sense that they take a potentially infinite domain if you know this term from mathematics and condense it into a finite range that is a huge number of values all possible passwords in the world to just a finite list of possible hash values it might be a long list of possible hash values but indeed no matter how long a string of text is if it's of some fixed length 16 characters, 32 characters, something else. There's only a finite number of those values.
 
+**Crptogaphy**
+Cryptography is all about the practice and study of securing our data particularly when we want to transmit it from one person to another.
+Cryptography can be broken down into acouple of different categories. One of which are codes.
+**Codes**
+Note: codes are not the type of code that you might write in Python or the like. It has nothing to do with software, but rather a mapping between what we'll call code words and the actual message or true reading that those words represent.
 
+**Encode**
+**Plain Text - Code Text**
+ It means taking a plain text message be it in English or any human language and taking that as input and producing as output code text. So, the code text might be a short, succinct sequence of words that might actually be English words, but they're not meant to mean what they normally mean. They're meant to be looked up in the code book to figure out what the message is actually trying to say. Meanwhile, decode, as you might expect, is the opposite. You take as input the code text that you have received as the recipient. You use that same code book to look up the code words and figure out what the actual message is in order to get the original plain text be it in English or any other human language that the code book is designed for.
 
+**Ciphers**
+Its best to opt for ciphers rather than encode and decode system Ciphers are more algorithmic in nature.
+They don't focus on maybe words or phrases. they might focus on individual letters instead or even bits if it's in the context nowadays of computers. 
+To incipher a message means to take that message in English or any other language are so-called plain text and convert it not surprisingly to cipher text as output. Meanwhile, the reverse of or rather an equivalent term here that you might know as well is to encrypt.
 
+**decrypt**
+Cipher text - plain text
 
+**Keys**
+in the world of cryptography it's quite recommended that you and I use public and well doumented well tried and tested **algorithms** publicly but we do keep one piece of information secret so that our use of that cipher that algorithm is specific to us and this customization this configuration are generally known as keys.
+A key is what sort of unlocks the capabilities of this cipher, but it's a key that needs to be known and used not only by you typically, but also by the recipient. So that by having copies of the same key, you can not only encrypt messages or incipher them, but you can also decrypt or decipher those messages, too.
 
+**Secret Key Cryptography** 
+**(algorithm Caesar cipher is what's generally known as a rotational cipher)**
+The presumption is that the security of your data relies on the secrecy of some key. So, if A wants to send a message to B, then A and B must keep secret whatever key they are using to configure their choice of algorithms.
+secret key cryptography, specifically in the context of encryption in scrambling data, is also known as symmetric key encryption for the reason that both A and B in this story are going to use the exact same key.
+Just think of that key as a number that you and the other person have somehow agreed upon in advance. That algorithm then will ultimately output the cipher text.
 
+**Decryption**
 
+cipher text + key -- plain text
+
+Some of the algorithms now currently used for encryption are:
+AES
+Triple DES
+These AES and Triple DES popular algorithms that have been vetted by the world and are very commonly used as secret keyencryption ciphers or symmetric key encryption ciphers, which to be clear require that both the sender and the receiver know and use the exact same key.
 
 
 
