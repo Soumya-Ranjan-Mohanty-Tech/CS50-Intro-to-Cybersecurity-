@@ -67,6 +67,84 @@ Apple - iCloud Keychain
 Google - Password Manager
 Microsoft - Credential Manager
 
+**Encrption and Decryption**
+
+1) apple Hash  ⊳ **Hash Function** ⊳ 1
+2) banana ⊳ **Hash Functiion** ⊳2 (Hash Value)
+
+**Dictonary Attacks**
+You can still use a dictionary for instance of
+01:30:27.280 English words or better yet a dictionary of English fruits and you could one
+01:30:32.719 fruit at a time run each of those values as input into the same hash function the
+01:30:38.320 library or code that you're using to achieve this and then that's going to give you one hash value after another
+01:30:44.560 and you could compare each of those hash values against whatever is in the database or the file of passwords that
+01:30:50.719 you the hacker in the story might have actually stolen somehow. You have to do more work though because it's no longer
+01:30:57.040 as simple as just comparing apple against apple and banana against banana. You actually have to do some work. You
+01:31:03.520 have to do some computational work.
+**Brute Force**
+the adversary re resort to brute force
+01:31:28.159 attacks and you can try even the simplest of passwords like 000000
+01:31:33.280 or maybe eight zeros instead. And you can hash that and see what the resulting hash value is and compare that against
+01:31:39.679 what's in the database. Then you could try 000000 00001
+01:31:45.360 hash that compare that against what's in the database and then move on to the next and the next. Doing this not just
+01:31:50.719 for numbers but for letters as well.
+**Rainbow Table**
+ There's a term of art known as a rainbow table which is a very beautiful way of saying that adversaries in
+01:32:22.880 advance might have already hashed all possible English words in a dictionary. adversaries might have already hashed
+01:32:29.679 all possible passwords of length four or five or six or seven or eight or something else. And maybe if they have a
+01:32:36.080 big enough hard drive, they are storing a big table like an Excel file or a CSV file of all of the words that they've
+01:32:43.440 tried, all of the passwords they've tried and all of the hash values they've already computed. Then it's even easier.
+01:32:49.920 Then they don't even need to do a brute force attack per se, hashing and hashing and hashing and hashing. Then they can
+01:32:55.760 just compare, compare, compare because indeed a rainbow table simply contains all of the passwords they've tried, all
+01:33:02.239 of the hash values they've generated. And so they just compare left to right whatever the user typed in against the
+01:33:08.880 hash value they've already computed. Now for certain hash functions, this threat of a rainbow table is just not feasible.
+01:33:16.320 You might need terabytes or pabytes of data, which means a lot of hard drives
+01:33:21.679 and a lot of money. So there are potential downward pressures on this kind of an attack, but it can certainly
+01:33:27.440 speed things up.
+**Salting**
+salt isn't something that's meant to be private or secret or secure. It's just sprinkled in there to make sure that whatever hash value comes out of this black box is a little bit different than if you had put a different salt value instead.
+Different users should have different salt values just in case they choose the same passwords.
+The salt is actually stored in the hash value itself according to this algorithm in the first two characters. The next time Carol logs in, she types in her username, Carol, and hits enter. The server now knows, okay, I'm expecting a password from Carol. Let's see what she types in. Suppose that she types in correctly. Cherry. Now, the system is not storing Cherry. So, it's not going to compare literally what Carol typed in. But it is going to hash Cherry. But first, the system's going to check what is Carol's salt, and it's going to infer as much by looking at Carol's hash value and looking only at the first two characters by convention. Then what the server is going to do, it's going to take whatever Carol typed in, cherry, c h e r r y, it's going to pass in 50, and then hopefully it's going to get back this same value here, this whole string in yellow. And if those are correct, then the carol will be considered authenticated. By contrast, if the username happens to be Charlie and Charlie hits enter, then what the server is going to do is look at Charlie's hash value, grab the first two characters for Charlie's salt, use that salt and cherry as the input to the hash function, and hope that the result is Charlie's value, not Carol's.
+
+1) cherry + 5θ(Salt Value) ⊳ **Hash Function** ⊳ 5θxyv355l.mcl
+
+**NIST -  National Institute for Standards and Technology**
+verifiers shall store memorized secrets in the form that is resistant to offline
+01:50:48.159 attacks. Memorized secrets shall be salted and hashed using a suitable
+01:50:53.600 one-way key derivation function. Their purpose is to make each password guessing uh trial by an attacker who has
+01:51:01.119 obtained a password hash file expensive and therefore the cost of guessing
+01:51:06.239 attack of a guessing attack high or prohibitive. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
