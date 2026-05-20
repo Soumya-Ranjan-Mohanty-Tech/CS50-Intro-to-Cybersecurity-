@@ -109,12 +109,11 @@ The salt is actually stored in the hash value itself according to this algorithm
 1) cherry + 5θ(Salt Value) ⊳ **Hash Function** ⊳ 5θxyv355l.mcl
 
 **NIST -  National Institute for Standards and Technology**
-verifiers shall store memorized secrets in the form that is resistant to offline
-01:50:48.159 attacks. Memorized secrets shall be salted and hashed using a suitable
-01:50:53.600 one-way key derivation function. Their purpose is to make each password guessing uh trial by an attacker who has
-01:51:01.119 obtained a password hash file expensive and therefore the cost of guessing
-01:51:06.239 attack of a guessing attack high or prohibitive. 
+verifiers shall store memorized secrets in the form that is resistant to offline attacks. Memorized secrets shall be salted and hashed using a suitable one-way key derivation function. Their purpose is to make each password guessing uh trial by an attacker who has obtained a password hash file expensive and therefore the cost of guessing attack of a guessing attack high or prohibitive.
 
+**One way hash function**
+Arbitary lenghth - fixed length
+These are mathematical functions, or in the context of programmin these are function written in code languages like python or otherwise that take as input string of arbitrary length that is a password.
 
 
 
