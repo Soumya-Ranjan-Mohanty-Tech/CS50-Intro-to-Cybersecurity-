@@ -149,13 +149,13 @@ Just think of that key as a number that you and the other person have somehow ag
 cipher text + key -- plain text
 
 Some of the algorithms now currently used for encryption are:
-AES
-Triple DES
+**AES
+Triple DES**
 These AES and Triple DES popular algorithms that have been vetted by the world and are very commonly used as secret keyencryption ciphers or symmetric key encryption ciphers, which to be clear require that both the sender and the receiver know and use the exact same key.
 **Public Key Cryptography/Asymetric key encryption**
-Diffie Helman,
+**Diffie Helman,
 MQV,
-RSA
+RSA**
 Two keys are used one public and a private key. They have a mathematical relationship. It is generated for you. Public key is not secret it is public. But the private is supposed to be kept seceret. If i share the public key in public then some one that has the public key can use the public key to encrypt a message and send it to me. And i, who is having the private key is the onl one in the worls who can decrypt the message.
 **RSA**
 n = p*q
@@ -225,27 +225,64 @@ Meaning:
 e^−1 modϕ(n)
 So: d=17^−1 mod3120
 
+**Other Key Exchange**
+**Diffie Hellman** [**Diffie–Hellman itself does not encrypt data. It is a key exchange algorithm used to create a shared secret, which is then used by a symmetric encryption algorithm such as Advanced Encryption Standard to encrypt the actual messages.**]
+First we take a number **g** which is the generator which can be anything like **2 for instance**and then we pick a really big prime number **p** and those are agreed upon in advance and now person **A** picks another really big prime number **a** and then we do the mathematical calculation ie., **g** to the power of **a** **mod** **p**. Meanwhile,**B** or Bob still uses the same **g**, still uses the same **p**, picks his own private key called **b** and raises **g** to the power of **b** **modulo** **p** and that gives him back this value capital **B**. And now Alice and Bob can send those values across the inetrnet **A and B** and thaxs to some modular arithmathic here too.
 
+A = Alic's Public Key
+B = Bob's Public Key
+g = generator
+a = A's private key
+b = B's private key
+p = Really big prime number
 
+**A = g^a mod p
+B = g^b mod p**
 
+Now Alice can take bob's **B** value and raise it to the power of **a**, which effectively gives you **g** to the power of **a** times **b** **mod** **p**. Bob meanwhile can take the value **A** raise it to the power of it's own private key **b** than mod **p**
 
+**s(A) = B^a mod p
+s(B) = A^b mod p**
 
+S = g^a*b mod p
 
+****Digital Siganture****
+**Digital Signature Algorithm (DSA)
+Elliptic Curve Digital Signature Algorithm (ECDSA)
+RSA (RSA)** and others gives the ability to sign documents.
 
+**Sign**
+How to digitally sign a document?
+1) First the message (An arbitrary size document - Document, contract- Long or Short) is converted into as such......
+Message - **Hash Fuction**- Hash
 
+3) Then we take our private key along with our hash value and take it through Digital signture alogorith to get the digital signature. So, we take a arbitrary size input and get a fixed output by a cryptographic hash function. Incase of Public key encryption 
 
+Private Key + Hash Value - Digital signture alogorith - Digital Signature
 
+**Verify Digital Signature**
+Recipient recieves the message and the digital signature. Now we have to run the document through the publically available hash function to get a hash value. The document miht be long so we have to collapse it into a short hash represntation. Then we take the public key of the person who signed the document and we take that they claim is their signature and we decrypt their signature with their public key. Taht should output the same hash value that we calculated using the document and the publically available hash function.
 
+ Message/Document - publically Available hash function(Verification Algorithm) - Hash Value1 
+ Public key + Digital signature - Public Key - Hash Value2
+ If Hash Value1 = Hash Value2, then it is verified
+The public keys are stored in a central registry
 
+In conclusion:
+A digital signature is created by hashing a document and signing the hash with the sender's private key. The recipient verifies the signature using the sender's public key and compares the resulting hash with the hash of the received document. If both hashes match, the signature is valid and the document's integrity and authenticity are confirmed.
 
+**Web Authentication**
+**Pass keys** or more technically it's an **implementation** of a **standard** called **web authentication**. And it turns out that these pass keys which are available on certain platforms and certain websites and ever more will be available soon quite shortly. They too rely on public and private keys as follows. You don't have to memorize a hard to guess password. You don't have to even store a hard to guess password in a password manager because pass keys eliminate passwords.
+When you go to website or application you awill be prompted not to add a user name or password, rather you will be asked to input your pass key. Pass key is something like a fingerprint or face scanning technology and these pass keys will be stored in a cloud storage for future use. Then the device will create a public key and private key for just that particular website, then it will send the public key and a user name or any piece of information which will sugest that it is infact you to the website. But we willnot send any password. And the private key will be stored in your own browser or some piece of software. And this private and public key will be unique to each website we log into and it will be created repeatedly but automatically for each website.
+And next time we like to login to the previously logged in website. The website will send a randomly generated challenge (a word, number a liitle message) that the website would like us to sign digitally. To digitally sign it we will need the pass key, the challenge and the private key through the digital signature algorithm to get the signature. Then finally the website will use our stored public key to decrypt the signature to hopefully get the same challenge value.
+It doesn't require us to remember passwords but it does require though that we don't lose the device or the devices that registered for these websites or apps. But again, increasingly is the world uh providing cloud services whether it's with Apple or Microsoft or Google or others that presumably can synchronize your pass keys across devices.
 
+Private key + Challenge - Digital Signature Algorithm - Signature
 
+**One-Sentence Summary**
+Passkeys replace passwords by generating a unique public/private key pair for each website. The website stores only the public key, while the private key remains on the user's device and is used to digitally sign login challenges that the website verifies using the stored public key.
 
-
-
-
-
-
+**Encryption In Transit**
 
 
 
